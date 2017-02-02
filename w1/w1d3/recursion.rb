@@ -64,12 +64,22 @@ end
 
 def permutation(arr)
   perms = []
-  0.upto(arr.length - 1) do |i|
+  1.upto(arr.length) do |i|
     perms << arr.rotate(i)
     perms << arr.reverse.rotate(i)
   end
-  perms
+  perms.uniq.sort.reverse
 end
+
+def permutation(arr)
+  perms = []
+  1.upto(arr.length) do |i|
+    perms << arr.rotate(i) << arr.reverse.rotate(i)
+  end
+  perms.uniq.sort
+end
+
+
 
 def bsearch(arr, target, from = 0, to = nil)
   to = arr.count - 1 if to == nil
